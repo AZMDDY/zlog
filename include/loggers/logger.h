@@ -6,10 +6,17 @@ namespace zlog {
 
 class Logger {
 public:
-    Logger(const std::string& name, Level lvl) : name(name), lvl(lvl) {}
+    Logger(const std::string& name, Level lvl = INFO) : name(name), lvl(lvl) {}
     virtual ~Logger() {}
-    virtual void Write(const std::string& msg, Level lvl) = 0;
-    virtual void Send() = 0;
+    virtual void Write(const std::string& msg, Level lvl)
+    {
+        if (lvl < this->lvl) {
+            return;
+        }
+        data += msg;
+    }
+
+    virtual void Send() {}
 
     void SetLevel(Level lvl)
     {
@@ -26,7 +33,7 @@ public:
         return name;
     }
 
-private:
+protected:
     std::string data;
     std::string name;
     Level lvl;

@@ -5,10 +5,11 @@ using namespace std;
 
 int main(int agrc, char** argv)
 {
+    zlog::Init();
     ZLOG(INFO) << zlog::Color::blue << "hello world";
     ZLOG(DEBUG) << zlog::Color::green << "hello world";
     ZLOG(ERROR) << zlog::Color::yellow << "hello world";
     ZLOG(WARNING) << zlog::Color::white << "hello world";
     ZLOG(FATAL) << zlog::Color::red << "hello world";
-    return 0; 
+    return 0;
 }

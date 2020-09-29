@@ -9,16 +9,17 @@ class Logger;
 
 class LoggerManage {
 public:
-    static LoggerManage& Instance()
+    static LoggerManage* Instance()
     {
         static LoggerManage instance;
-        return instance;
+        return &instance;
     }
-
-    ~LoggerManage() = default;
 
     void Add(Logger* logger)
     {
+        if (logger == nullptr) {
+            return;
+        }
         loggerMap[logger->GetName()] = logger;
     }
 
@@ -53,6 +54,7 @@ public:
 
 private:
     LoggerManage() = default;
+    ~LoggerManage() = default;
 
 private:
     std::unordered_map<std::string, Logger*> loggerMap;

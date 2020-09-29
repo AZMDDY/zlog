@@ -48,7 +48,7 @@ namespace details {
         }
         void Flush()
         {
-            zlog::LoggerManage::Instance().Write2Logger(stream.GetData(), logLevel);
+            zlog::LoggerManage::Instance()->Write2Logger(stream.GetData(), logLevel);
         }
 
     private:

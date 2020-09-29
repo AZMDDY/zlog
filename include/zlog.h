@@ -10,6 +10,7 @@
 #include "details/mutex.h"
 #include "details/color.h"
 #include "loggers/logger.h"
+#include "loggers/stderr_logger.h"
 #include "details/log_stream.h"
 #include "logger_manage.h"
 #include "details/log_message.h"
@@ -23,7 +24,11 @@
 #define ZLOG_FATAL() zlog::details::LogMessage(__LINE__, __FILE__, zlog::FATAL)
 namespace zlog {
 
-void Init() {}
+void Init()
+{
+    static auto stderrLogger = StdErrLogger("cerr", INFO);
+    LoggerManage::Instance()->Add(&stderrLogger);
+}
 
 }  // namespace zlog
 #endif  // ZLOG_ZLOG_H_
