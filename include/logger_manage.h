@@ -32,6 +32,9 @@ public:
 
     void Remove(Logger* logger)
     {
+        if (logger == nullptr) {
+            return;
+        }
         for (auto iter = loggerMap.begin(); iter != loggerMap.end();) {
             if (iter->first == logger->GetName()) {
                 iter = loggerMap.erase(iter);
