@@ -26,7 +26,7 @@ namespace zlog {
 
 void Init()
 {
-    static auto stderrLogger = StdErrLogger("cerr", INFO);
+    static auto stderrLogger = StdErrLogger("cerr", ERROR);
     LoggerManage::Instance()->Add(&stderrLogger);
 }
 
