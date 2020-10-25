@@ -6,11 +6,11 @@
 namespace zlog {
 class StdErrLogger : public Logger {
 public:
-    StdErrLogger(const std::string& name, Level lvl = INFO) : Logger(name, lvl) {}
-    ~StdErrLogger() {}
-    void Write(const std::string& msg, Level lvl) override
+    StdErrLogger(const std::string& name, Level level = INFO) : Logger(name, level) {}
+    ~StdErrLogger() = default;
+    void Write(const std::string& msg, Level level) override
     {
-        if (lvl < this->lvl) {
+        if (level < lvl) {
             return;
         }
         std::cerr << msg;

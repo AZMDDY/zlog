@@ -1,15 +1,12 @@
-#include <iostream>
-#include <unistd.h>
 #include "zlog.h"
-using namespace std;
 
 int main(int agrc, char** argv)
 {
     zlog::Init();
-    ZLOG(INFO) << zlog::Color::blue << "hello world";
-    ZLOG(DEBUG) << zlog::Color::green << "hello world";
-    ZLOG(ERROR) << zlog::Color::yellow << "hello world";
-    ZLOG(WARNING) << zlog::Color::white << "hello world";
-    ZLOG(FATAL) << zlog::Color::red << "hello world";
+    ZLOG(INFO) << zlog::Color::blue << "Hello zlog";
+    ZLOG(DEBUG) << "Support for int: " << 12456;
+    ZLOG(ERROR) << zlog::Color::yellow << "Support for color string: " << "give your some color";
+    ZLOG(WARNING) << "23333";
+    ZLOG(FATAL) << zlog::Color::red << "easy to use";
     return 0;
 }
