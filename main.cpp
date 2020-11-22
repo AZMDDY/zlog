@@ -1,5 +1,6 @@
 #include "zlog.h"
-
+#include <iostream>
+#include <thread>
 int main(int agrc, char** argv)
 {
     zlog::Init();

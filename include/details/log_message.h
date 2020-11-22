@@ -36,7 +36,7 @@ namespace details {
             auto now = std::chrono::system_clock::now();
             auto now_s = std::chrono::system_clock::to_time_t(now);
             auto now_ss = std::chrono::system_clock::from_time_t(now_s);
-            char timeStamp[20];  // yyyy-mm-dd hh-MM-ss
+            char timeStamp[20];  // yyyy-mm-dd hh:MM:ss
             std::strftime(timeStamp, sizeof(timeStamp), "%F %T", std::localtime(&now_s));
             int msecs = std::chrono::duration_cast<std::chrono::microseconds>(now - now_ss).count();
 
